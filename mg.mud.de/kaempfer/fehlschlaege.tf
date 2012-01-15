@@ -328,7 +328,7 @@
 ;;; Patzer
 
 /def -p2 -q -msimple -ag -t'Du schlaegst Dir mit dem Ellbogen den Schaedel \
-	ein!  Wie immer dies auch gehen' FehlschlagZaehler32 = \
+	ein! Wie immer dies auch gehen' FehlschlagZaehler32 = \
 	/if /!ismacro FehlschlagZaehler32b%; /then \
 		/def -1 -p50 -q -msimple -ag -t'soll :)' \
 			FehlschlagZaehler32b = \
@@ -338,9 +338,9 @@
 	/endif
 
 /def -p2 -q -msimple -ag -t'Du versuchst schneller zu kaempfen, haust Dir \
-	dabei aber nur die' FehlschlagZaehler34 = \
+	dabei aber nur die Waffe gegen' FehlschlagZaehler34 = \
 	/if /!ismacro FehlschlagZaehler34b%; /then \
-		/def -1 -p50 -q -msimple -ag -t'Waffe gegen das Bein!' \
+		/def -1 -p50 -q -msimple -ag -t'das Bein!' \
 			FehlschlagZaehler34b = \
 			/echo -a%CFG_MG_KAEMPFER_FEHLSCHLAEGE_FEHLSCHLAG_ATTR \
 				Fehlschlaege bei Schnellkampf heute: \
@@ -476,10 +476,10 @@
 	/endif
 
 /def -p2 -q -msimple -ag -t'Du stellst Dich beim Versuch, die Kampftechnik zu \
-	wechseln, so' FehlschlagZaehler49 = \
+	wechseln, so ungeschickt an,' FehlschlagZaehler49 = \
 	/if /!ismacro FehlschlagZaehler49b%; /then \
-		/def -1 -p50 -q -msimple -ag -t'ungeschickt an, dass Du Dir \
-			Dein Knie in den Magen rammst.' FehlschlagZaehler49b = \
+		/def -1 -p50 -q -msimple -ag -t'dass Du Dir Dein Knie in den \
+			Magen rammst.' FehlschlagZaehler49b = \
 			/echo -a%CFG_MG_KAEMPFER_FEHLSCHLAEGE_FEHLSCHLAG_ATTR \
 				Patzer ohne Zuordnung! Heute schon: \
 				$$[++fs_pat_z] davon!%;\
@@ -673,7 +673,7 @@
 				$$[++fs_pat_z] davon! (Paralyse!)%;\
 	/endif
 
-/def -p2 -q -msimple -ag -t'Du verdrehst Dir ungeschickter Weise Dein \
+/def -p2 -q -msimple -ag -t'Du verdrehst Dir ungeschickterweise Dein \
 	Handgelenk und kannst nur noch' FehlschlagZaehler70 = \
 	/if /!ismacro FehlschlagZaehler70b%; /then \
 		/def -1 -p50 -q -msimple -ag -t'langsamer kaempfen.' \
