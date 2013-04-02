@@ -14,6 +14,10 @@
 
 ;;; Texte und Farben fuer die Spells
 
+; Erschoepfung
+/set_var CFG_MG_URUKHAI_ERSCHOEPFUNG_ECHO_TEXT Erschoepfung
+/set_var CFG_MG_URUKHAI_ERSCHOEPFUNG_ECHO_ATTR Cyellow
+
 ; Nachtsicht
 /set_var CFG_MG_URUKHAI_NACHTSICHT_ECHO_TEXT Nachtsicht
 /set_var CFG_MG_URUKHAI_NACHTSICHT_ECHO_ATTR Cgreen
@@ -41,31 +45,40 @@
 	/set_status_var_flag urukhai_nachtsicht urukhai_nachtsicht 1
 
 
+;;; Trigger
+
+; Erschoepfung
+
+/def -p0 -q -q -agCblue -mglob -t'Lass Dir mal ein bischen Zeit zum \
+	verschnaufen.' \
+		urukhai_erschoepfung = \
+			/cfg_echo MG_URUKHAI_ERSCHOEPFUNG %*
+
 ; Nachtsicht
 
 /def -p0 -q -w -agCblue -mglob -t'Deine Augen bekommen einen gruenen \
-		Schimmer.' \
-		    urukhai_nachtsicht = \
-				/set urukhai_nachtsicht 1%;\
-				/cfg_echo MG_URUKHAI_NACHTSICHT %*
+	Schimmer.' \
+		urukhai_nachtsicht = \
+			/set urukhai_nachtsicht 1%;\
+			/cfg_echo MG_URUKHAI_NACHTSICHT %*
 
 /def -p0 -q -w -agCblue -mglob -t'Du hast doch schon die Nachtsicht \
-		aktiviert!' \
-	    	dunkelelfen_nachtsicht_alr = \
-				/set urukhai_nachtsicht 1%;\
-			    /cfg_echo MG_URUKHAI_NACHTSICHT_ALR %*
+	aktiviert!' \
+		dunkelelfen_nachtsicht_alr = \
+			/set urukhai_nachtsicht 1%;\
+			/cfg_echo MG_URUKHAI_NACHTSICHT_ALR %*
 
 /def -p0 -q -w -agCblue -mglob -t'Das gruene Schimmern in Deinen Augen \
-		laesst nach und verschwindet.' \
-		    urukhai_nachtsicht_aus = \
-				/set urukhai_nachtsicht 0%;\
-				/cfg_echo MG_URUKHAI_NACHTSICHT_OUT %*
+	laesst nach und verschwindet.' \
+		urukhai_nachtsicht_aus = \
+			/set urukhai_nachtsicht 0%;\
+			/cfg_echo MG_URUKHAI_NACHTSICHT_OUT %*
 
 /def -p0 -q -w -agCblue -mglob -t'Deine Augen brennen nur ein bisschen, \
-		sonst passiert nichts.' \
-		    urukhai_nachtsicht_error = \
-				/set urukhai_nachtsicht 0%;\
-				/cfg_echo MG_URUKHAI_NACHTSICHT_ERROR %*
+	sonst passiert nichts.' \
+		urukhai_nachtsicht_error = \
+			/set urukhai_nachtsicht 0%;\
+			/cfg_echo MG_URUKHAI_NACHTSICHT_ERROR %*
 
 ; Ruelpse (nur fehlender Alkhohol, rest reduce.tf)
 
