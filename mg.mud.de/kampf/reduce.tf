@@ -3973,6 +3973,51 @@
 	/set RE_ART %RE_PT4@{%RE_FARBE_21}Delfen@{%RE_FARBE_35}
 
 
+;;; URUK-HAI
+
+;;; Beisse
+
+/def -p4 -q -agCblue -mglob -t'Du stuerzt Dich mit aufgerissenem Maul auf Deinen Gegner.' \
+    re_urukhai_beisse_gag
+
+/def -p4 -q -agCblue -mregexp -t'^([^ ].+) beisst einen (.+) kraeftig\\.$' \
+    re_urukhai_beisse = \
+        /set RE_ANGREIFER %P1%;\
+        /set RE_OPFER %P2%;\
+        /set RE_WAFFE Beissen%;\
+        /set RE_ART %RE_PT2@{%RE_FARBE_21}Uruk-Hai@{%RE_FARBE_35}
+
+/def -p4 -q -agCblue -mglob -t'Deine Zaehne klacken aufeinander. Das ging daneben.' \
+    re_urukhai_beisse_err = \
+        /set RE_ANGREIFER Du%;\
+        /set RE_OPFER _%;\
+        /set RE_WAFFE Beissen%;\
+        /set RE_SCHADEN 15%;\
+        /set RE_ART %RE_PT2@{%RE_FARBE_21}Uruk-Hai@{%RE_FARBE_36}%;\
+        /re_ausgabe
+
+;;; Ruelpse
+
+/def -p4 -q -agCblue -mglob -t'Du oeffnest Deinen Mund und spannst die Bauchmuskeln an.' \
+    re_urukhai_ruelpse_gag
+
+/def -p4 -q -agCblue -mregexp -t'^([^ ].+) ruelpst einen (.+) an\\.$' \
+    re_urukhai_ruelpse = \
+        /set RE_ANGREIFER %P1%;\
+        /set RE_OPFER %P2%;\
+        /set RE_WAFFE Ruelpsen%;\
+        /set RE_ART %RE_PT2@{%RE_FARBE_21}Uruk-Hai@{%RE_FARBE_35}
+
+/def -p4 -q -agCblue -mglob -t'Du wuergst nur einmal trocken, aber nichts passiert.' \
+    re_urukhai_ruelpse_err = \
+        /set RE_ANGREIFER Du%;\
+        /set RE_OPFER _%;\
+        /set RE_WAFFE Ruelpse%;\
+        /set RE_SCHADEN 15%;\
+        /set RE_ART %RE_PT2@{%RE_FARBE_21}Uruk-Hai@{%RE_FARBE_36}%;\
+        /re_ausgabe
+
+
 ;;; WERWOELFE
 
 ;;; Kralle
