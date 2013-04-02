@@ -246,8 +246,11 @@ Faengt die LP/MP-Meldung ab, setzt die Properties p_lp und p_mp und die Differen
 /addh var p_mp, p_lp, p_m_lp, p_m_mp
 /addh t_lpmp trig
 
-/def -t"^(>* )?Du hast jetzt ([0-9]*) Lebenspunkte und ([0-9]*) Konzentrationspunkte\\.$" -mregexp -agCblue -Fp9999 t_lpmp = \
+/def -t"^(>* )?dU HAST JETZT ([0-9]*) lEBENSPUNKTE und ([0-9]*) Konzentrationspunkte\\.$" -mregexp -agCblue -Fp9999 t_lpmp = \
 	/eval_hook points %P2 %P3
+
+/def -t"^LP: *([0-9]*), KP: *([0-9]*), (.*)\\.$" -mregexp -agCblue -Fp9999 t_lpmp2 = \
+	/eval_hook points %P1 %P2
 
 ; fuer nicht statusreporttoolbesitzer:
 ; /check_punkte auf eine Taste binden, z.B. /setkey 1 5 /check_punkte LP/MP Info
