@@ -3980,7 +3980,7 @@
 /def -p4 -q -agCblue -mglob -t'Du stuerzt Dich mit aufgerissenem Maul auf Deinen Gegner.' \
     re_urukhai_beisse_gag
 
-/def -p4 -q -agCblue -mregexp -t'^([^ ].+) beisst einen (.+) kraeftig\\.$' \
+/def -p4 -q -agCblue -mregexp -t'^([^ ].+) beisst einen? (.+) kraeftig\\.$' \
     re_urukhai_beisse = \
         /set RE_ANGREIFER %P1%;\
         /set RE_OPFER %P2%;\
@@ -4001,7 +4001,7 @@
 /def -p4 -q -agCblue -mglob -t'Du oeffnest Deinen Mund und spannst die Bauchmuskeln an.' \
     re_urukhai_ruelpse_gag
 
-/def -p4 -q -agCblue -mregexp -t'^([^ ].+) ruelpst einen (.+) an\\.$' \
+/def -p4 -q -agCblue -mregexp -t'^([^ ].+) ruelpst einen? (.+) an\\.$' \
     re_urukhai_ruelpse = \
         /set RE_ANGREIFER %P1%;\
         /set RE_OPFER %P2%;\
