@@ -246,11 +246,15 @@ Faengt die LP/MP-Meldung ab, setzt die Properties p_lp und p_mp und die Differen
 /addh var p_mp, p_lp, p_m_lp, p_m_mp
 /addh t_lpmp trig
 
-/def -t"^(>* )?dU HAST JETZT ([0-9]*) lEBENSPUNKTE und ([0-9]*) Konzentrationspunkte\\.$" -mregexp -agCblue -Fp9999 t_lpmp = \
+/def -t"^(>* )?Du hast jetzt ([0-9]*) Lebenspunkte und ([0-9]*) Konzentrationspunkte\\.$" -mregexp -agCblue -Fp9999 t_lpmp = \
 	/eval_hook points %P2 %P3
 
-/def -t"^LP: *([0-9]*), KP: *([0-9]*), (.*)\\.$" -mregexp -agCblue -Fp9999 t_lpmp2 = \
-	/eval_hook points %P1 %P2
+/def -t"^LP: *([0-9]*), KP: *([#0-9]*), (.*)\\.$" -mregexp -agCblue -Fp9999 t_lpmp2 = \
+	/if ({P2}=/"###") \
+		/eval_hook points %P1 -1%; \
+	/else \
+		/eval_hook points %P1 %P2%; \
+	/endif
 
 ; fuer nicht statusreporttoolbesitzer:
 ; /check_punkte auf eine Taste binden, z.B. /setkey 1 5 /check_punkte LP/MP Info
@@ -485,12 +489,15 @@ Der letzte Trigger muss dann updatePlayer2 aufrufen.
 /addh set_points mak
 
 /def set_points = \
-        /set p_update_time=$[time()]%;\
-	/set p_lp=%{1}%;/set p_mp=%{2}%;\
+    /set p_update_time=$[time()]%;\
+	/set p_lp=%{1}%;\
 	/set p_m_lp=$[+{1}-p_last_lp]%;\
-	/set p_m_mp=$[+{2}-p_last_mp]%;\
 	/set p_last_lp=%p_lp%;\
-	/set p_last_mp=%p_mp%;\
+	/if ({2}>-1)\
+		/set p_mp=%{2}%;\
+		/set p_m_mp=$[+{2}-p_last_mp]%;\
+		/set p_last_mp=%p_mp%;\
+	/endif %;\
 
 /add_to_hook_begin points /set_points %1 %2
 
