@@ -47,34 +47,39 @@
 
 ;;; Trigger
 
+; Keine KPs
+
+/def -p0 -q -aCred -msimple -t'Du bist nicht mehr konzentriert genug.' \
+	urukhai_nokp
+
 ; Erschoepfung
 
-/def -p0 -q -q -agCblue -mglob -t'Lass Dir mal ein bischen Zeit zum \
+/def -p0 -q -w -agCblue -msimple -t'Lass Dir mal ein bischen Zeit zum \
 	verschnaufen.' \
 		urukhai_erschoepfung = \
 			/cfg_echo MG_URUKHAI_ERSCHOEPFUNG %*
 
 ; Nachtsicht
 
-/def -p0 -q -w -agCblue -mglob -t'Deine Augen bekommen einen gruenen \
+/def -p0 -q -w -agCblue -msimple -t'Deine Augen bekommen einen gruenen \
 	Schimmer.' \
 		urukhai_nachtsicht = \
 			/set urukhai_nachtsicht 1%;\
 			/cfg_echo MG_URUKHAI_NACHTSICHT %*
 
-/def -p0 -q -w -agCblue -mglob -t'Du hast doch schon die Nachtsicht \
+/def -p0 -q -w -agCblue -msimple -t'Du hast doch schon die Nachtsicht \
 	aktiviert!' \
 		dunkelelfen_nachtsicht_alr = \
 			/set urukhai_nachtsicht 1%;\
 			/cfg_echo MG_URUKHAI_NACHTSICHT_ALR %*
 
-/def -p0 -q -w -agCblue -mglob -t'Das gruene Schimmern in Deinen Augen \
+/def -p0 -q -w -agCblue -msimple -t'Das gruene Schimmern in Deinen Augen \
 	laesst nach und verschwindet.' \
 		urukhai_nachtsicht_aus = \
 			/set urukhai_nachtsicht 0%;\
 			/cfg_echo MG_URUKHAI_NACHTSICHT_OUT %*
 
-/def -p0 -q -w -agCblue -mglob -t'Deine Augen brennen nur ein bisschen, \
+/def -p0 -q -w -agCblue -msimple -t'Deine Augen brennen nur ein bisschen, \
 	sonst passiert nichts.' \
 		urukhai_nachtsicht_error = \
 			/set urukhai_nachtsicht 0%;\
@@ -82,7 +87,7 @@
 
 ; Ruelpse (nur fehlender Alkhohol, rest reduce.tf)
 
-/def -p0 -q -w -agCblue -mglob -t'Du brauchst schon ein bisschen Alkohol, \
+/def -p0 -q -w -agCblue -msimple -t'Du brauchst schon ein bisschen Alkohol, \
 	damit Dein Ruelpser wirkt.' \
 		urukhai_ruelpse_err = \
 			/cfg_echo MG_URUKHAI_RUELPSE_ALK %*
