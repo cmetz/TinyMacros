@@ -4030,7 +4030,7 @@
         /set RE_ART %RE_PT2@{%RE_FARBE_21}Uruk-Hai@{%RE_FARBE_35}
 
 /def -p4 -q -agCblue -msimple -t'Du schwingst Deine Faust weit an deinem Gegner vorbei.' \
-    re_urukhai_ruelpse_err = \
+    re_urukhai_hammerfaust_err = \
         /set RE_ANGREIFER Du%;\
         /set RE_OPFER _%;\
         /set RE_WAFFE Hammerfaust%;\
