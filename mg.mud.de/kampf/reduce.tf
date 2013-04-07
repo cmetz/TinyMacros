@@ -3977,7 +3977,7 @@
 
 ;;; Beisse
 
-/def -p4 -q -agCblue -mglob -t'Du stuerzt Dich mit aufgerissenem Maul auf Deinen Gegner.' \
+/def -p4 -q -agCblue -msimple -t'Du stuerzt Dich mit aufgerissenem Maul auf Deinen Gegner.' \
     re_urukhai_beisse_gag
 
 /def -p4 -q -agCblue -mregexp -t'^([^ ].+) beisst einen? (.+) kraeftig\\.$' \
@@ -3987,7 +3987,7 @@
         /set RE_WAFFE Beissen%;\
         /set RE_ART %RE_PT2@{%RE_FARBE_21}Uruk-Hai@{%RE_FARBE_35}
 
-/def -p4 -q -agCblue -mglob -t'Deine Zaehne klacken aufeinander. Das ging daneben.' \
+/def -p4 -q -agCblue -msimple -t'Deine Zaehne klacken aufeinander. Das ging daneben.' \
     re_urukhai_beisse_err = \
         /set RE_ANGREIFER Du%;\
         /set RE_OPFER _%;\
@@ -3998,7 +3998,7 @@
 
 ;;; Ruelpse
 
-/def -p4 -q -agCblue -mglob -t'Du oeffnest Deinen Mund und spannst die Bauchmuskeln an.' \
+/def -p4 -q -agCblue -msimple -t'Du oeffnest Deinen Mund und spannst die Bauchmuskeln an.' \
     re_urukhai_ruelpse_gag
 
 /def -p4 -q -agCblue -mregexp -t'^([^ ].+) ruelpst einen? (.+) an\\.$' \
@@ -4008,11 +4008,32 @@
         /set RE_WAFFE Ruelpsen%;\
         /set RE_ART %RE_PT2@{%RE_FARBE_21}Uruk-Hai@{%RE_FARBE_35}
 
-/def -p4 -q -agCblue -mglob -t'Du wuergst nur einmal trocken, aber nichts passiert.' \
+/def -p4 -q -agCblue -msimple -t'Du wuergst nur einmal trocken, aber nichts passiert.' \
     re_urukhai_ruelpse_err = \
         /set RE_ANGREIFER Du%;\
         /set RE_OPFER _%;\
         /set RE_WAFFE Ruelpse%;\
+        /set RE_SCHADEN 15%;\
+        /set RE_ART %RE_PT2@{%RE_FARBE_21}Uruk-Hai@{%RE_FARBE_36}%;\
+        /re_ausgabe
+
+;;; Hammerfaust
+
+/def -p4 -q -agCblue -msimple -t'Du holst zu einem gewaltigen Schlag aus.' \
+	re_urukhai_hammerfaust_gag
+
+/def -p4 -q -agCblue -mregexp -t'^([^ ].+) schlaegst einem? (.+) Deine Faust ins Gesicht\\.$' \
+	re_urukhai_hammerfaust = \
+        /set RE_ANGREIFER %P1%;\
+        /set RE_OPFER %P2%;\
+        /set RE_WAFFE Hammerfaust%;\
+        /set RE_ART %RE_PT2@{%RE_FARBE_21}Uruk-Hai@{%RE_FARBE_35}
+
+/def -p4 -q -agCblue -msimple -t'Du schwingst Deine Faust weit an deinem Gegner vorbei.' \
+    re_urukhai_ruelpse_err = \
+        /set RE_ANGREIFER Du%;\
+        /set RE_OPFER _%;\
+        /set RE_WAFFE Hammerfaust%;\
         /set RE_SCHADEN 15%;\
         /set RE_ART %RE_PT2@{%RE_FARBE_21}Uruk-Hai@{%RE_FARBE_36}%;\
         /re_ausgabe
