@@ -80,9 +80,7 @@
 /def -p2 -q -msimple -ag -t'Der Kopfstoss geht so daneben, dass Du stolperst \
 	und nur den Boden triffst.' FehlschlagZaehler1b = \
 	/echo -a%CFG_MG_KAEMPFER_FEHLSCHLAEGE_FEHLSCHLAG_ATTR Fehlschlaege \
-	bei Kopfstoss heute: $$[++fs_kopfst_z] \
-			(LP-Abzug!)%;\
-	/endif
+	bei Kopfstoss heute: $[++fs_kopfst_z] (LP-Abzug!)
 
 /def -p1 -q -mglob -ag -t'Der Waffentrick gegen * klappt nicht so recht.' \
 	FehlschlagZaehler2 = \
@@ -162,9 +160,9 @@
 		bei Waffenschlag heute: $[++fs_ws_z]
 
 /def -p2 -q -msimple -ag -t'Du versuchst krampfhaft, gegen Deine \
-	Kampfbeeintraechtigung anzukaempfen,' FehlschlagZaehler16 = \
+	Kampfbeeintraechtigung anzukaempfen, doch' FehlschlagZaehler16 = \
 	/if /!ismacro FehlschlagZaehler16b%; /then \
-		/def -1 -p50 -q -msimple -ag -t'doch dies gelingt Dir leider \
+		/def -1 -p50 -q -msimple -ag -t'dies gelingt Dir leider \
 			nicht.' FehlschlagZaehler16b = \
 			/echo -a%CFG_MG_KAEMPFER_FEHLSCHLAEGE_FEHLSCHLAG_ATTR \
 				Fehlschlaege bei Kampfwille heute: \
@@ -392,9 +390,9 @@
 	/endif
 
 /def -p2 -q -msimple -ag -t'Der Versuch, Deine Schmerzen zu ueberwinden, \
-	misslingt voellig. Du' FehlschlagZaehler39 = \
+	misslingt voellig. Du bist' FehlschlagZaehler39 = \
 	/if /!ismacro FehlschlagZaehler39b%; /then \
-		/def -1 -p50 -q -msimple -ag -t'bist kurzeitig wie gelaehmt.' \
+		/def -1 -p50 -q -msimple -ag -t'kurzzeitig wie gelaehmt.' \
 			FehlschlagZaehler39b = \
 			/echo -a%CFG_MG_KAEMPFER_FEHLSCHLAEGE_FEHLSCHLAG_ATTR \
 				Fehlschlaege bei Schmerz heute: \
@@ -436,11 +434,11 @@
 	/echo -a%CFG_MG_KAEMPFER_FEHLSCHLAEGE_FEHLSCHLAG_ATTR Patzer ohne \
 		Zuordnung! Heute schon: $[++fs_pat_z] davon!
 
-/def -p2 -q -msimple -ag -t'Oh Oh! Statt Deine Kampfbeeintraechtigung los zu \
-	werden, erzielst' FehlschlagZaehler44 = \
+/def -p2 -q -msimple -ag -t'Oh Oh! Statt Deine Kampfbeeintraechtigung \
+	loszuwerden, erzielst Du genau das' FehlschlagZaehler44 = \
 	/if /!ismacro FehlschlagZaehler44b%; /then \
-		/def -1 -p50 -q -msimple -ag -t'Du genau das Gegenteil! Du \
-			stehst wie paralysiert da!' FehlschlagZaehler44b = \
+		/def -1 -p50 -q -msimple -ag -t'Gegenteil! Du stehst wie \
+			paralysiert da!' FehlschlagZaehler44b = \
 			/echo -a%CFG_MG_KAEMPFER_FEHLSCHLAEGE_FEHLSCHLAG_ATTR \
 				Fehlschlaege bei Kampfwille heute: \
 				$$[++fs_kw_z] (Patzer mit Paralyse!)%;\
@@ -641,7 +639,7 @@
 /def -p2 -q -mglob -ag -t'Du stolperst, als Du den Todesstoss gegen *' \
 	FehlschlagZaehler66 = \
 	/if /!ismacro FehlschlagZaehler66b%; /then \
-		/def -1 -p50 -q -mglob -ag -t'*haust Dich selber!' \
+		/def -1 -p50 -q -mglob -ag -t'*selber!' \
 			FehlschlagZaehler66b = \
 			/echo -a%CFG_MG_KAEMPFER_FEHLSCHLAEGE_FEHLSCHLAG_ATTR \
 				Fehlschlaege bei Todesstoss heute: \
@@ -790,7 +788,8 @@
 /def -p2 -q -mglob -ag -t'Du schwingst * in hohem Bogen, laesst *' \
 	FehlschlagZaehler82 = \
 	/if /!ismacro FehlschlagZaehler82b%; /then \
-		/def -1 -p50 -q -mglob -ag -t'{Es|Sie|Er} fliegt foermlich \
+		/def -1 -p50 -q -mglob -ag \
+				-t'genau am hoechsten Punkt los. {Es|Sie|Er} fliegt foermlich \
 			davon.' FehlschlagZaehler82b = \
 			/echo -a%CFG_MG_KAEMPFER_FEHLSCHLAEGE_FEHLSCHLAG_ATTR \
 				Patzer ohne Zuordnung! Heute schon: \
